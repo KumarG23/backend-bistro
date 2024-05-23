@@ -4,12 +4,17 @@ from .models import *
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
-        fields = ['id', 'name']
+        fields = ['name']
 
 class ItemSerializer(serializers.ModelSerializer):
+    category_name = serializers.SerializerMethodField()
+
+    def get_category_name(self, obj):
+        return obj.category.name
+    
     class Meta:
         model = Item
-        fields = ['id', 'category','title', 'description', 'price', 'spiceLevel']
+        fields = ['id', 'category_name', 'title', 'description', 'price', 'spiceLevel']
 
 class CustomerSerializer(serializers.ModelSerializer):
     class Meta:
@@ -29,6 +34,11 @@ class OrderSerializer(serializers.ModelSerializer):
     class Meta:
         model = Order
         fields = ['id', 'customer', 'pickup', 'completed', 'order_items']
+
+class OverOrderSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = OverOrder
+        fields = ['id', 'customer', 'title', 'price']
 
 
    # def create(self, validated_data):

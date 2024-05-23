@@ -21,7 +21,14 @@ class CustomerViewSet(viewsets.ModelViewSet):
 class OrderViewSet(viewsets.ModelViewSet):
     queryset = Order.objects.all()
     serializer_class = OrderSerializer
+  
 
 class OrderItemViewSet(viewsets.ModelViewSet):
     queryset = OrderItem.objects.all()
     serializer_class = OrderItemSerializer
+
+class OverOrderViewSet(viewsets.ModelViewSet):
+    queryset = OverOrder.objects.all()
+    serializer_class = OverOrderSerializer
+
+

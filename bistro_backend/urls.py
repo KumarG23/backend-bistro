@@ -27,6 +27,7 @@ router.register(r'item', ItemViewSet)
 router.register(r'customer', CustomerViewSet)
 router.register(r'order', OrderViewSet)
 router.register(r'order-items', OrderItemViewSet)
+router.register(r'overall', OverOrderViewSet)
 
 urlpatterns = [
     path('', include(router.urls))

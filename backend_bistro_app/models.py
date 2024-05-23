@@ -26,3 +26,10 @@ class OrderItem(models.Model):
     item = models.ForeignKey(Item, on_delete=models.CASCADE)
     quantity = models.PositiveIntegerField()
 
+class OverOrder(models.Model):
+    customer = models.TextField()
+    title = models.TextField()
+    price = price = models.DecimalField(max_digits=4, decimal_places=2)
+
+
+
